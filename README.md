@@ -32,16 +32,53 @@ We're a project management tool targeting product teams.
 
 ## Installation
 
-### Option 1: Install via `.skill` file
-1. Download `competitor-changelog-spy.skill` from this repo
-2. Open Claude
-3. Go to **Settings → Skills → Install from file**
-4. Select the `.skill` file
+### Claude.ai (Web / Desktop / Mobile)
 
-### Option 2: Manual install
+**Option 1: Upload the skill file**
+1. Download `competitor-changelog-spy.skill` from this repo
+2. Open Claude and go to **Customize → Skills**
+3. Click **Upload skill** and select the `.skill` file
+4. Toggle it on
+
+> Requires code execution to be enabled in **Settings → Capabilities**. Available on Pro, Max, Team, and Enterprise plans.
+
+**Option 2: Manual install**
 1. Copy the contents of `SKILL.md`
-2. In Claude, go to **Settings → Skills → Create new skill**
+2. In Claude, go to **Customize → Skills → Create new skill**
 3. Paste the content and save
+
+---
+
+### Claude Code (Terminal)
+
+Skills in Claude Code live in your `~/.claude/skills/` directory (personal) or `.claude/skills/` at the root of a project (project-level).
+
+**Install globally (available in all Claude Code sessions):**
+
+```bash
+# Create the skills directory if it doesn't exist
+mkdir -p ~/.claude/skills/competitor-changelog-spy
+
+# Clone this repo and copy the skill
+git clone https://github.com/YOUR_USERNAME/competitor-changelog-spy.git
+cp -r competitor-changelog-spy/. ~/.claude/skills/competitor-changelog-spy/
+```
+
+Or manually:
+```bash
+mkdir -p ~/.claude/skills/competitor-changelog-spy
+# Copy SKILL.md into that folder
+```
+
+Claude Code will automatically discover and load the skill. You can also invoke it directly with `/competitor-changelog-spy` or just describe what you want — Claude will trigger it when relevant.
+
+**Install for a single project only:**
+```bash
+mkdir -p .claude/skills/competitor-changelog-spy
+cp SKILL.md .claude/skills/competitor-changelog-spy/
+```
+
+> No plan restrictions in Claude Code — skills work based on your Claude Code access.
 
 ---
 
